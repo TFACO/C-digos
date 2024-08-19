@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int numAlunos = 10;
+    const int numProvas = 3;
+    float notas[numAlunos][numProvas];
+    float media;
+    
+    // Entrada de notas
+    for (int i = 0; i < numAlunos; i++) {
+        cout << "Notas do aluno " << i + 1 << ":\n";
+        for (int j = 0; j < numProvas; j++) {
+            cout << "Nota da prova " << j + 1 << ": ";
+            cin >> notas[i][j];
+        }
+    }
+    
+    // Cálculo e exibição dos resultados
+    for (int i = 0; i < numAlunos; i++) {
+        media = 0;
+        for (int j = 0; j < numProvas; j++) {
+            media += notas[i][j];
+        }
+        media /= numProvas;
+
+        cout << "Aluno " << i + 1 << " - Média: " << media << " - ";
+        if (media < 6) {
+            cout << "Reprovado\n";
+        } else {
+            cout << "Aprovado\n";
+        }
+    }
+
+    return 0;
+}
